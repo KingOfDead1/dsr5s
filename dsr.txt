@@ -1,0 +1,2 @@
+[Laptop{Brand=asus ProcessorSpeed=50.0 StorageCapacity=50.0 screenSize=50.0 batteryLife=5000.0 brightness=52},
+]
