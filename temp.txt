@@ -1,0 +1,1 @@
+[Laptop{Brand=a ProcessorSpeed=2.0 StorageCapacity=2.0 screenSize=2.0 batteryLife=2.0 brightness=21},

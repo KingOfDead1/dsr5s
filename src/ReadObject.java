@@ -23,7 +23,6 @@ public class ReadObject {
     }
     
     private static void parseAndPrintObject(String line) {
-        // Assuming each line represents an object in a custom format
         Pattern pattern = Pattern.compile("(\\w+)\\{Brand=(\\w+) ProcessorSpeed=(\\d+\\.\\d+) StorageCapacity=(\\d+\\.\\d+)");
         Matcher matcher = pattern.matcher(line);
         
@@ -38,17 +37,13 @@ public class ReadObject {
             System.out.println("Processor Speed: " + processorSpeed);
             System.out.println("Storage Capacity: " + storageCapacity);
             
-            // Additional parameters based on the computer type
             if (type.equalsIgnoreCase("Laptop")) {
-                // Assuming additional parameters are Screen Size and Battery Capacity
                 System.out.println("Screen Size: " + extractAdditionalParam(line, "screenSize"));
                 System.out.println("Battery Capacity: " + extractAdditionalParam(line, "batteryLife"));
             } else if (type.equalsIgnoreCase("Workstation")) {
-                // Assuming additional parameters are Number of Monitors and Number of Processing Units
                 System.out.println("Number of Monitors: " + extractAdditionalParam(line, "numMonitors"));
                 System.out.println("Number of Processing Units: " + extractAdditionalParam(line, "processingUnits"));
             } else if (type.equalsIgnoreCase("Server")) {
-                // Assuming additional parameters are Rack Size and Data Center Location
                 System.out.println("Rack Size: " + extractAdditionalParam(line, "rackSize"));
                 System.out.println("Data Center Location: " + extractAdditionalParam(line, "dataCenterLocation"));
             }
@@ -56,7 +51,6 @@ public class ReadObject {
     }
     
     private static String extractAdditionalParam(String line, String paramName) {
-        // Extracting additional parameters using regex
         Pattern pattern = Pattern.compile(paramName + "=(\\S+)");
         Matcher matcher = pattern.matcher(line);
         

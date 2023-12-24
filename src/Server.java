@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-public class Server extends Computer {
+public class Server extends Computer implements NetworkDevice{
     private String rackSize;
     private String dataCenterLocation;
 
@@ -46,5 +46,15 @@ public class Server extends Computer {
     public String toString() {
         String var10000 = this.getBrand();
         return "Server{Brand=" + var10000 + " ProcessorSpeed=" + this.getProcessorSpeed() + " StorageCapacity=" + this.getStorageCapacity() + " rackSize='" + this.rackSize + "' dataCenterLocation='" + this.dataCenterLocation + "'},\n";
+    }
+    
+    @Override
+    public void connectToNetwork() {
+        System.out.println("Connecting...");
+    }
+    
+    @Override
+    public void disconnectFromNetwork() {
+        System.out.println("Disconnecting...");
     }
 }

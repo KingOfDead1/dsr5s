@@ -1,38 +1,58 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
 
+import java.io.*;
 import java.util.Iterator;
 import java.util.List;
 
 public class RemoveObjectFromFile {
-    public RemoveObjectFromFile() {
-    }
-
-    public static void remove() {
-        String path = "dsr.txt";
-        List<Computer> computers = ReadObjectsFromFile.readObjectsFromFile(path);
-        WriteFile.writeToFile(computers);
-        System.out.println("Before removal:");
-        Iterator var2 = computers.iterator();
-
-        while(var2.hasNext()) {
-            Computer computer = (Computer)var2.next();
-            System.out.println(computer);
+    
+    public static void removeObject(String brand, double processorSpeed, double storage) {
+        try {
+            File inputFile = new File("dsr.txt");
+            File tempFile = new File("temp.txt");
+        
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        
+            String lineToRemove = "Brand=" + brand + " ProcessorSpeed=" + processorSpeed + " StorageCapacity=" + storage;
+        
+            String currentLine;
+            boolean objectFound = false;
+            boolean insideObject = false;
+        
+            while ((currentLine = reader.readLine()) != null) {
+                if (currentLine.contains(lineToRemove)) {
+                    objectFound = true;
+                    insideObject = true;
+                    continue;
+                }
+            
+                if (insideObject) {
+                    if (currentLine.contains("]")) {
+                        insideObject = false;
+                    }
+                    continue;
+                }
+            
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+        
+            writer.close();
+            reader.close();
+        
+            if (!objectFound) {
+                System.out.println("Object not found.");
+            } else {
+                if (!inputFile.delete()) {
+                    throw new IOException("Could not delete the original file");
+                }
+                
+                if (!tempFile.renameTo(inputFile)) {
+                    throw new IOException("Could not rename the temporary file to the original file name");
+                }
+                System.out.println("Object removed successfully.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        Computer computerToRemove = (Computer)computers.get(0);
-        computers.remove(computerToRemove);
-        WriteFile.writeToFile(computers);
-        List<Computer> afterRemovalComputers = ReadObjectsFromFile.readObjectsFromFile(path);
-        System.out.println("After removal:");
-        Iterator var4 = afterRemovalComputers.iterator();
-
-        while(var4.hasNext()) {
-            Computer computer = (Computer)var4.next();
-            System.out.println(computer);
-        }
-
     }
 }

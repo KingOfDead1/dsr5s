@@ -78,7 +78,6 @@ public class SearchObject {
                     double foundStorage = Double.parseDouble(matcher.group(3));
                     
                     if (foundBrand.equalsIgnoreCase(brand) && foundProcessorSpeed == processorSpeed && foundStorage == storage) {
-                        // Pretty print the result
                         System.out.println("Object found:");
                         System.out.println("Type: " + type);
                         System.out.println("Brand: " + foundBrand);
@@ -120,7 +119,6 @@ public class SearchObject {
                     double foundProcessorSpeed = Double.parseDouble(matcher.group(2));
                     double foundStorage = Double.parseDouble(matcher.group(3));
                     
-                    // Check if the current object matches the search criteria
                     if (foundBrand.equalsIgnoreCase(brand) && foundProcessorSpeed == processorSpeed && foundStorage == storage) {
                         System.out.println("Object found: " + line);
                         return;

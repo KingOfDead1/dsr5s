@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-public class Workstation extends Computer {
+public class Workstation extends Computer implements NetworkDevice{
     private int numMonitors;
     private int processingUnits;
 
@@ -44,7 +44,17 @@ public class Workstation extends Computer {
     }
 
     public String toString() {
-        String var10000 = this.getBrand();
-        return "Workstation{Brand=" + var10000 + " ProcessorSpeed=" + this.getProcessorSpeed() + " StorageCapacity=" + this.getStorageCapacity() + " numMonitors=" + this.numMonitors + " processingUnits=" + this.processingUnits + "},\n";
+        String s = this.getBrand();
+        return "Workstation{Brand=" + s + " ProcessorSpeed=" + this.getProcessorSpeed() + " StorageCapacity=" + this.getStorageCapacity() + " numMonitors=" + this.numMonitors + " processingUnits=" + this.processingUnits + "},\n";
+    }
+    
+    @Override
+    public void connectToNetwork() {
+        System.out.println("Connecting...");
+    }
+    
+    @Override
+    public void disconnectFromNetwork() {
+        System.out.println("Disconnecting...");
     }
 }

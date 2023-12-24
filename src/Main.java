@@ -34,7 +34,7 @@ public class Main {
                     ReadObject.readAllObjects();
                     break;
                 case "Premahvane":
-                    RemoveObjectFromFile.remove();
+                    objectRemoval(scanner);
                     break;
                 case "Exit":
                     WriteFile.writeToFile(addingFile.getComputers());
@@ -51,6 +51,16 @@ public class Main {
             System.out.println("Exit");
             operation = scanner.nextLine();
         }
+    }
+    
+    private static void objectRemoval(Scanner scanner) {
+        System.out.println("Input a brand to be removed: ");
+        String brand = scanner.nextLine();
+        System.out.println("Input a processor speed to be removed: ");
+        double processorSpeed = Double.parseDouble(scanner.nextLine());
+        System.out.println("Input a storage to be removed: ");
+        double storage = Double.parseDouble(scanner.nextLine());
+        RemoveObjectFromFile.removeObject(brand, processorSpeed, storage);
     }
     
     private static void chooseComputer(Scanner scanner) {

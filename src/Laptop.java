@@ -5,7 +5,7 @@
 
 import java.util.Random;
 
-public class Laptop extends Computer {
+public class Laptop extends Computer implements NetworkDevice{
     private double screenSize;
     private double batteryLife;
     private int brightness;
@@ -66,5 +66,15 @@ public class Laptop extends Computer {
     public String toString() {
         String var10000 = this.getBrand();
         return "Laptop{Brand=" + var10000 + " ProcessorSpeed=" + this.getProcessorSpeed() + " StorageCapacity=" + this.getStorageCapacity() + " screenSize=" + this.screenSize + " batteryLife=" + this.batteryLife + " brightness=" + this.brightness + "},\n";
+    }
+    
+    @Override
+    public void connectToNetwork() {
+        System.out.println("Connecting...");
+    }
+    
+    @Override
+    public void disconnectFromNetwork() {
+        System.out.println("Disconnecting...");
     }
 }
