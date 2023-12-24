@@ -1,2 +1,4 @@
 [Laptop{Brand=asus ProcessorSpeed=50.0 StorageCapacity=50.0 screenSize=50.0 batteryLife=5000.0 brightness=52},
+][Laptop{Brand=acer ProcessorSpeed=100.0 StorageCapacity=100.0 screenSize=100.0 batteryLife=100.0 brightness=82},
+][Workstation{Brand=afosd ProcessorSpeed=534534.0 StorageCapacity=534543.0 numMonitors=53453 processingUnits=64565475},
 ]
